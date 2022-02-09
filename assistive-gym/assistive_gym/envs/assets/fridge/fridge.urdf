@@ -1,0 +1,143 @@
+<?xml version="1.0" ?>
+<robot name="oven.urdf">
+  <material name="Light Grey">
+    <color rgba=".5 .5 .5 1"/>
+  </material>
+  <link name="base_link">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.57 0 3.14" xyz="0 0 0"/>
+      <geometry>
+		    <mesh filename='fridge.stl' scale="1 1 1"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision concave="yes">
+      <origin rpy="1.57 0 3.14" xyz="0 0 0"/>
+      <geometry>
+		    <mesh filename='fridge.stl' scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lower_door_link">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.57 0 3.14" xyz="0 0 0"/>
+      <geometry>
+		    <mesh filename='lower_door.stl' scale="1 1 1"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision concave="yes">
+      <origin rpy="1.57 0 3.14" xyz="0 0 0"/>
+      <geometry>
+		    <mesh filename='lower_door.stl' scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="lower_handle_link">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.57 0 3.14" xyz="0 0 0"/>
+      <geometry>
+		    <mesh filename='lower_door_handle.stl' scale="1 1 1"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="1.57 0 3.14" xyz="0 0 0"/>
+      <geometry>
+		    <mesh filename='lower_door_handle.stl' scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="upper_door_link">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+     <origin rpy="1.57 0 3.14" xyz=".55 -.6 -1.4"/>
+      <geometry>
+		    <mesh filename='upper_door.stl' scale="1 1 1"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="1.57 0 3.14" xyz=".55 -.6 -1.4"/>
+      <geometry>
+		    <mesh filename='upper_door.stl' scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="upper_handle_link">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="1.57 0 3.14" xyz=".55 -.6 -1.4"/>
+      <geometry>
+		    <mesh filename='upper_door_handle.stl' scale="1 1 1"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="1.57 0 3.14" xyz=".55 -.6 -1.4"/>
+      <geometry>
+		    <mesh filename='upper_door_handle.stl' scale="1 1 1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hinge" type="revolute">
+    <parent link="base_link"/>
+    <child link="upper_door_link"/>
+    <origin xyz="-.55 .6 1.4" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="1.7" effort="100" velocity="100"/>
+  </joint>
+  <joint name="lower_door" type="fixed">
+    <parent link="base_link"/>
+    <child link="lower_door_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <joint name="lower_handle" type="fixed">
+    <parent link="lower_door_link"/>
+    <child link="lower_handle_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <joint name="upper_handle" type="fixed">
+    <parent link="upper_door_link"/>
+    <child link="upper_handle_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

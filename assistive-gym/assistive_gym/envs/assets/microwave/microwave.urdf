@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+
+<robot name="microwave.urdf">
+  <material name="Dark Grey">
+    <color rgba=".3 .3 .3 1"/>
+  </material>
+  <material name="Light Grey">
+    <color rgba=".5 .5 .5 1"/>
+  </material>
+  <link name="base_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <geometry>
+		    <mesh filename="microbody.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="microbutton.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="microfeet.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+
+    <collision concave="yes">
+      <geometry>
+		    <mesh filename="microbody.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="microbutton.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="microfeet.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="screen_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="microscreen.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="microscreen.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="door_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz=".3 .2 0"/>
+      <geometry>
+			  <mesh filename="microdoor.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <visual>
+      <origin rpy="0 0 0" xyz=".3 .2 0"/>
+      <geometry>
+        <mesh filename="microwindow.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+
+    <collision>
+      <origin rpy="0 0 0" xyz=".3 .2 0"/>
+      <geometry>
+			  <mesh filename="microdoor.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 0 0" xyz=".3 .2 0"/>
+      <geometry>
+        <mesh filename="microwindow.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="handle_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz=".3 .2 0"/>
+      <geometry>
+        <mesh filename="microhandle.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz=".3 .2 0"/>
+      <geometry>
+        <mesh filename="microhandle.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hinge" type="revolute">
+    <parent link="base_link"/>
+    <child link="door_link"/>
+    <origin xyz="-.3 -.2 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-2.5" upper="0" effort="100" velocity="100"/>
+  </joint>
+  <joint name="handle" type="fixed">
+    <parent link="door_link"/>
+    <child link="handle_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  <joint name="screen" type="fixed">
+    <parent link="base_link"/>
+    <child link="screen_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

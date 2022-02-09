@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+<robot name="shelf.urdf">
+  <material name="Light Grey">
+    <color rgba=".5 .5 .5 1"/>
+  </material>
+  <material name="Navy Blue">
+    <color rgba="0 0 .3 1"/>
+  </material>
+
+  <link name="baseLink">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz=".25 0 0"/>
+      <geometry>
+				<box size=".02 .25 .4"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz=".25 0 0"/>
+      <geometry>
+				<box size=".02 .25 .4"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="-.25 0 0"/>
+      <geometry>
+				<box size=".02 .25 .4"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-.25 0 0"/>
+      <geometry>
+				<box size=".02 .25 .4"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 .19"/>
+      <geometry>
+				<box size=".5 .25 .02"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 .19"/>
+      <geometry>
+				<box size=".5 .25 .02"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+				<box size=".5 .25 .02"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+				<box size=".5 .25 .02"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -.19"/>
+      <geometry>
+				<box size=".5 .25 .02"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 -.19"/>
+      <geometry>
+				<box size=".5 .25 .02"/>
+      </geometry>
+    </collision>
+  </link>
+</robot>
+

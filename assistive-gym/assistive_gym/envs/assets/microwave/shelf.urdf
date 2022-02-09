@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<robot name="microwave.urdf">
+  <material name="Light Grey">
+    <color rgba=".5 .5 .5 1"/>
+  </material>
+  <material name="Navy Blue">
+    <color rgba="0 0 .3 1"/>
+  </material>
+  <link name="base_link">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 -.125 0"/>
+      <geometry>
+				<box size=".4 .02 .25"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz=".2 0 0"/>
+      <geometry>
+				<box size=".02 .25 .25"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz=".2 0 0"/>
+      <geometry>
+				<box size=".02 .25 .25"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz=".2 0 0"/>
+      <geometry>
+				<box size=".02 .25 .25"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="-.2 0 0"/>
+      <geometry>
+				<box size=".02 .25 .25"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-.2 0 0"/>
+      <geometry>
+				<box size=".02 .25 .25"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 .12"/>
+      <geometry>
+				<box size=".4 .25 .02"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 .12"/>
+      <geometry>
+				<box size=".4 .25 .02"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 -.12"/>
+      <geometry>
+				<box size=".4 .25 .02"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 -.12"/>
+      <geometry>
+				<box size=".4 .25 .02"/>
+      </geometry>
+    </collision>
+
+    
+  </link>
+  <link name="door_link">
+    <contact>
+      <lateral_friction value="1.0"/>
+    </contact>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".0"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-.2 .03 0"/>
+      <geometry>
+				<box size=".4 .02 .25"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-.2 .03 0"/>
+      <geometry>
+				<box size=".4 .02 .25"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="handle_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="-.35 .05 0"/>
+      <geometry>
+				<box size=".02 .07 .1"/>
+      </geometry>
+      <material name="Navy Blue"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-.35 .05 0"/>
+      <geometry>
+				<box size=".02 .07 .1"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hinge" type="revolute">
+    <parent link="base_link"/>
+    <child link="door_link"/>
+    <origin xyz=".2 .1 0" rpy="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="0" upper="1.7" effort="100" velocity="100"/>
+  </joint>
+  <joint name="handle" type="fixed">
+    <parent link="door_link"/>
+    <child link="handle_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>
+

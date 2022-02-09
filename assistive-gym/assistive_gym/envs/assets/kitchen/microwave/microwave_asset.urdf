@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+
+<!-- <robot name="kitchen.urdf">
+  <link name="base_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <geometry>
+		    <mesh filename="micro.obj" />
+        <mesh filename="microdoor.obj" />
+        <mesh filename="microbutton.obj" />
+        <mesh filename="microfeet.obj" />
+        <mesh filename="microhandle.obj" />
+        <mesh filename="microwindow.obj" />
+
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+		    <mesh filename="micro.obj" />
+        <mesh filename="microdoor.obj" />
+        <mesh filename="microbutton.obj" />
+        <mesh filename="microfeet.obj" />
+        <mesh filename="microhandle.obj" />
+        <mesh filename="microwindow.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="screen_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin xyz="-1.1 0 0" rpy="0 0 0"/>
+      <geometry>
+			  <mesh filename="screen_visual.dae"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-1.1 0 0" rpy="0 0 0"/>
+      <geometry>
+			  <mesh filename="screen_visual.dae"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hinge" type="revolute">
+      <parent link="base_link"/>
+      <child link="screen_link"/>
+      <origin xyz="1.1 0 .5" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-.2" upper="1.7" effort="100" velocity="100"/>
+  </joint>
+</robot> -->
+
+<robot name="laptop.urdf">
+  <material name="Dark Grey">
+    <color rgba=".3 .3 .3 1"/>
+  </material>
+  <material name="Light Grey">
+    <color rgba=".5 .5 .5 1"/>
+  </material>
+  <link name="base_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.35" rpy = "0 0 0"/>
+      <geometry>
+			  <mesh filename="table.obj" scale="1.5 1 0.05"/>
+      </geometry>
+      <material name="Dark Grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 .35" rpy = "0 0 0"/>
+      <geometry>
+			  <mesh filename="table.obj" scale="1.5 1 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="screen_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin xyz="-1.1 0 0" rpy="0 0 0"/>
+      <geometry>
+			  <mesh filename="table.obj" scale="1.5 1 0.05"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-1.1 0 0" rpy="0 0 0"/>
+      <geometry>
+			  <mesh filename="table.obj" scale="1.5 1 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hinge" type="revolute">
+      <parent link="base_link"/>
+      <child link="screen_link"/>
+      <origin xyz="1.1 0 .5" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-.2" upper="1.7" effort="100" velocity="100"/>
+  </joint>
+</robot>

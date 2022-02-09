@@ -1,0 +1,25 @@
+Metadata-Version: 1.2
+Name: assistive-gym
+Version: 0.100
+Summary: Physics simulation for assistive robotics and human-robot interaction.
+Home-page: https://github.com/Healthcare-Robotics/assistive-gym
+Author: Zackory Erickson
+Author-email: zackory@gatech.edu
+License: MIT
+Description: UNKNOWN
+Keywords: robotics,assitive robotics,human-robot interaction,physics simulation
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: zlib/libpng License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Games/Entertainment :: Simulation
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Framework :: Robot Framework
+Requires-Python: >=3

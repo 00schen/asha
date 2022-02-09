@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+
+<?xml version="1.0" ?>
+
+<robot name="kettle.urdf">
+  <material name="Dark Grey">
+    <color rgba=".3 .3 .3 1"/>
+  </material>
+  <material name="Light Grey">
+    <color rgba=".5 .5 .5 1"/>
+  </material>
+  <link name="base_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <geometry>
+		    <mesh filename="kettle.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="kettlehandle.obj" />
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+
+    <collision>
+      <geometry>
+		    <mesh filename="kettle.obj" />
+      </geometry>
+    </collision>
+    <collision>
+      <geometry>
+        <mesh filename="kettlehandle.obj" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

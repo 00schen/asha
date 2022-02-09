@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+
+<robot name="valve.urdf">
+  <material name="Dark Grey">
+    <color rgba=".3 .3 .3 1"/>
+  </material>
+  <material name="Light Grey">
+    <color rgba=".5 .5 .5 1"/>
+  </material>
+  <material name="Blue">
+    <color rgba="0 0 1 1"/>
+  </material>
+
+  <link name="base_link">
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <link name="valve">
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="-1.57075 0 0"/>
+      <geometry>
+        <mesh filename="valve_4_high_poly.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+
+    <collision concave="yes">
+      <origin xyz="0 0 0" rpy="-1.5705 0 0"/>
+      <geometry>
+        <mesh filename="valve_4_high_poly.stl" scale="0.002 0.002 0.002"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <link name="handle">
+    <inertial>
+      <mass value="0.01"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.2 0.105 0" rpy="0 0 0"/>
+      <geometry>
+			  <sphere radius="0.05"/>
+      </geometry>
+      <material name="Blue"/>
+    </visual>
+    <collision>
+      <origin xyz="-0.2 0.105 0" rpy="-0 0 0"/>
+      <geometry>
+			  <sphere radius="0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="swivel" type="continuous">
+      <parent link="base_link"/>
+      <child link="valve"/>
+      <dynamics damping="0.0" friction="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+  </joint>
+
+  <joint name="valve_handle" type="fixed">
+      <parent link="valve"/>
+      <child link="handle"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>

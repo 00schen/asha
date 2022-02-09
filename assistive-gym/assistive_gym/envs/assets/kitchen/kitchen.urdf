@@ -1,0 +1,71 @@
+<?xml version="1.0" ?>
+
+<robot name="kitchen.urdf">
+  <material name="T_marble">
+    <texture filename="textures/marble1.png"/>
+  </material>
+  <material name="T_metal">
+    <texture filename="textures/metal1.png"/>
+  </material>
+  <material name="wall_white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="wall_blue">
+    <color rgba=".66 .7 .8 1"/>
+  </material>
+  <material name="wall_collision_blue">
+    <color rgba="0.3 0.3 1.0 0.5"/>
+  </material>
+
+  <material name="counter_metal" rgba="1 1 1 1" texture="T_counter_metal" texrepeat="3 3" reflectance=".5" shininess="1" texuniform="false" />
+  <material name="counter_marble"  texture="T_counter_marble" texrepeat="1 1" reflectance=".2" shininess="1" texuniform="false" />
+  <material name="counter_black" rgba=".2 .2 .2 1" reflectance="1" shininess="1"  />
+  <material name="counter_blue" rgba=".46 .5 .6 1" reflectance="1" shininess="1"  />
+  <material name="counter_collision_blue" rgba="0.3 0.3 1.0 0.5" shininess="0" specular="0" />
+  
+  <link name="base_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0.35" rpy = "0 0 0"/>
+      <geometry>
+			  <mesh filename="body_visual.dae"/>
+      </geometry>
+      <material name="Dark Grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 .35" rpy = "0 0 0"/>
+      <geometry>
+			  <mesh filename="body_visual.dae"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="screen_link">
+    <inertial>
+      <mass value="5"/>
+      <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+    </inertial>
+    <visual>
+      <origin xyz="-1.1 0 0" rpy="0 0 0"/>
+      <geometry>
+			  <mesh filename="screen_visual.dae"/>
+      </geometry>
+      <material name="Light Grey"/>
+    </visual>
+    <collision>
+      <origin xyz="-1.1 0 0" rpy="0 0 0"/>
+      <geometry>
+			  <mesh filename="screen_visual.dae"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="hinge" type="revolute">
+      <parent link="base_link"/>
+      <child link="screen_link"/>
+      <origin xyz="1.1 0 .5" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="-.2" upper="1.7" effort="100" velocity="100"/>
+  </joint>
+</robot>

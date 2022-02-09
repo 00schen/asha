@@ -1,0 +1,38 @@
+<mujoco model="kitchen">
+    <compiler angle="radian" inertiafromgeom='auto' inertiagrouprange='4 5'/>
+    <include file='assets/basic_scene.xml'/>
+    <include file="assets/oven_asset.xml"/>
+    <include file="assets/counters_asset.xml"/>
+    <include file="assets/backwall_asset.xml"/>
+    <include file="assets/slidecabinet_asset.xml"/>
+    <include file="assets/hingecabinet_asset.xml"/>
+    <include file="assets/microwave_asset.xml"/>
+    <include file="assets/kettle_asset.xml"/>
+    <worldbody>
+        <body name="kitchen" pos="0 0 0">
+            <!--<body name="counters1" pos="0 0 0">-->
+                <!--<include file="assets/counters_chain.xml"/>-->
+            <!--</body>-->
+            <body name="oven" pos="0 0 0">
+                <include file="assets/oven_chain.xml"/>
+            </body>
+            <body name="backwall" pos="0 0 0">
+                <include file="assets/backwall_chain.xml"/>
+            </body>
+            <body name="slidecabinet" pos="0.098 0.28 2.61">
+                <include file="assets/slidecabinet_chain.xml"/>
+            </body>
+            <body name="hingecabinet1" pos="-1.0 -1.0 2.6" euler="0 0 1.57">
+                <include file="assets/hingecabinet_chain.xml"/>
+            </body>
+            <body name="microwave" pos="-0.892 -0.96 2.025" euler="0 0 1.57">
+                <include file="assets/microwave_chain.xml"/>
+            </body>
+        </body>
+        <body name="kettle" pos="-0.169 0 1.626">
+            <freejoint/>
+            <include file="assets/kettle_chain.xml"/>
+        </body>
+    </worldbody>
+
+</mujoco>
